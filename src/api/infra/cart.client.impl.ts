@@ -16,14 +16,11 @@ export class CartClientImpl extends BaseHttpClient implements CartClient {
   }
 
   async getCart(): Promise<ExternalCartsResponse> {
-    const response = await this.instance.get<ExternalCartsResponse>(
-      `/carts`,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    const response = await this.instance.get<ExternalCartsResponse>(`/carts`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
     return response.data;
   }
 }

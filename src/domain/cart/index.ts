@@ -16,6 +16,5 @@ export const CartSchema = z
   })
   .openapi('Cart');
 
-
 export type Item = z.infer<typeof ItemSchema>;
 export type Cart = z.infer<typeof CartSchema>;
