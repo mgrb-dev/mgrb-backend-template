@@ -3,8 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 export interface RequestContextData {
   tid: string;
   headers: Record<string, string>;
-
-  [key: string]: any;
 }
 
 class RequestContext {

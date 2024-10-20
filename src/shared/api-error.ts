@@ -1,11 +1,11 @@
 export class ApiError extends Error {
   constructor(
     message: string,
-    private readonly code: number,
-    private readonly metadata?: Record<string, any>
+    readonly httpStatus: number,
+    readonly metadata?: Record<string, any>
   ) {
     super(message);
-    this.code = code;
+    this.httpStatus = httpStatus;
     this.metadata = metadata;
   }
 }
