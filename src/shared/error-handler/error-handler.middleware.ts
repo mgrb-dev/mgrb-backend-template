@@ -3,42 +3,44 @@ import { ApiError } from '#shared/api-error';
 import logger from '#shared/logger/logger';
 import RequestContext from '#shared/request-context/request-context';
 
-/*
- * This middleware is responsible for handling errors.
+/**
+ * Middleware to handle errors in the application.
+ * Logs errors using a logger and sends an appropriate JSON response.
+ * @returns A middleware function that handles errors thrown in the app.
  */
+function errorHandlerMiddleware() {
+  return (err: Error, _req: Request, res: Response, _next: NextFunction) => {
+    const reqId = RequestContext.getInstance().data.tid;
 
-const errorHandlerMiddleware = (
-  err: Error,
-  _req: Request,
-  res: Response,
-  _next: NextFunction,
-) => {
-  if (res.headersSent) {
-    return;
-  }
+    if (res.headersSent) {
+      logger.warn({ message: 'Response already sent', reqId });
+      return;
+    }
 
-  if (err instanceof ApiError) {
-    logger.error({
-      httpStatus: err.httpStatus,
-      message: err.message,
-      reqId: RequestContext.getInstance().data.tid,
-    });
+    if (err instanceof ApiError) {
+      logError(err.message, err.httpStatus, reqId);
+      return res.status(err.httpStatus).json({
+        message: err.message,
+        httpStatus: err.httpStatus,
+      });
+    }
 
-    res.status(err.httpStatus).json({
-      message: err.message,
-      httpStatus: err.httpStatus,
-    });
-  } else {
-    logger.error({
-      httpStatus: 500,
-      message: err.message,
-      reqId: RequestContext.getInstance().data.tid,
-    });
+    logError(err.message, 500, reqId);
     res.status(500).json({
       message: 'Internal server error',
       httpStatus: 500,
     });
-  }
-};
+  };
+}
+
+/**
+ * Logs an error using the logger.
+ * @param message - The error message.
+ * @param status - HTTP status code related to the error.
+ * @param reqId - Unique request ID for tracking purposes.
+ */
+function logError(message: string, status: number, reqId: string) {
+  logger.error({ httpStatus: status, message, reqId });
+}
 
 export default errorHandlerMiddleware;

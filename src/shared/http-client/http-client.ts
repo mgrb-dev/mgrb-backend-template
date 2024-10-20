@@ -9,7 +9,7 @@ export type HttpClientOptions = {
 export abstract class BaseHttpClient {
   protected readonly instance: AxiosInstance;
 
-  constructor(options: HttpClientOptions) {
+  protected constructor(options: HttpClientOptions) {
     if (!options.baseURL) {
       throw new ApiError('baseUrl required', 500);
     }
