@@ -3,6 +3,10 @@ import { ApiError } from '#shared/api-error';
 import logger from '#shared/logger/logger';
 import RequestContext from '#shared/request-context/request-context';
 
+/*
+ * This middleware is responsible for handling errors.
+ */
+
 const errorHandlerMiddleware = (
   err: Error,
   _req: Request,

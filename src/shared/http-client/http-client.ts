@@ -17,5 +17,7 @@ export abstract class BaseHttpClient {
       baseURL: options.baseURL,
       timeout: options.timeout,
     });
+
+    //TODO headers interceptor
   }
 }

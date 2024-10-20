@@ -7,7 +7,7 @@ const bootstrap = (): Application => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(requestContextMiddleware);
-  logger.info({env: process.env.NODE_ENV, message: 'Server is running!'})
+  logger.info({ env: process.env.NODE_ENV, message: 'Server is running!' });
   return app;
 };
 

@@ -1,6 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
 import RequestContext from '#shared/request-context/request-context';
 
+/*
+ * This middleware is responsible for setting the request context.
+ */
 const requestContextMiddleware = (
   req: Request,
   _res: Response,
