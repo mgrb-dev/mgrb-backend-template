@@ -1,3 +1,5 @@
+import { Cart } from '#domain/cart';
+
 export interface CartService {
-  getCart(): Promise<any>;
+  getCart(): Promise<Cart>;
 }

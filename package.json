@@ -8,11 +8,8 @@
     "start:dev": "ts-node-dev --respawn -r tsconfig-paths/register ./src/bin/www.ts",
     "build": "tsc -p tsconfig.json && tsconfig-replace-paths -p tsconfig.json",
     "start": "node build/src/bin/www.js",
-    "test": "jest --config jest.config.js --coverage",
-    "lint": "eslint --ext .ts ./src",
-    "format": "prettier ./src --write",
-    "clean": "rm -rf build && rm -rf coverage",
-    "purge": "rm -rf node_modules",
+    "lint": "eslint --ext .ts ./src --max-warnings=0",
+    "lint:fix": "eslint --fix --ext .ts ./src",
     "prepare": "husky install"
   },
   "dependencies": {
