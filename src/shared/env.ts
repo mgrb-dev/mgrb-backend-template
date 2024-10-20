@@ -12,7 +12,6 @@ export enum ENV {
 export function getEnv(): ENV {
   const nodeEnv = (process.env.NODE_ENV?.toUpperCase() ||
     'LOCAL') as keyof typeof ENV;
-  console.log('nodeEnv', nodeEnv);
   if (!(nodeEnv in ENV)) {
     return ENV.LOCAL;
   }
