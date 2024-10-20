@@ -1,5 +1,8 @@
 import { Endpoint } from '#types/endpoint';
-import { getEnv } from '#shared/enviroment';
+import { ENV, getEnv } from '#shared/env';
+import local from './local';
+import prod from './prod';
+import stg from './stg';
 
 export interface AppConfig {
   clients: {
@@ -7,6 +10,9 @@ export interface AppConfig {
   };
 }
 
-const env = getEnv();
-const config = require(`./${env}`).default as AppConfig;
+const env: ENV = getEnv();
+
+const config: AppConfig =
+  env === ENV.LOCAL ? local : env === ENV.STG ? stg : prod;
+
 export default config;
