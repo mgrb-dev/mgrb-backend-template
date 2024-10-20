@@ -16,10 +16,8 @@ export class ApiError extends Error {
   ) {
     super(message);
 
-    // Ensure the name of this error is correct in stack traces
     this.name = this.constructor.name;
 
-    // Set the prototype explicitly to support instanceof checks
     Object.setPrototypeOf(this, ApiError.prototype);
   }
 }
