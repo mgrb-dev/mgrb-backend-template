@@ -1,10 +1,11 @@
 import { Application, Request, Response } from 'express';
 import bootstrap from '#api';
 import cartRouter from '#api/routers/cart.router';
+import openApiRouter from '#api/openapi/openapi.router';
 import { getCartController } from '#api/inject/controllers';
 
 const app: Application = bootstrap();
-
+app.use(openApiRouter())
 app.use(cartRouter(getCartController()));
 app.get('/health', (req: Request, res: Response) => {
   res.send('Server is running!');
