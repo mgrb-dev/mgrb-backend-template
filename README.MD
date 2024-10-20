@@ -10,6 +10,7 @@ A backend template built with Express and Node.js to kickstart development quick
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [Scripts](#scripts)
+- [Docker Commands](#docker-commands)
 - [License](#license)
 
 ## Prerequisites
@@ -69,11 +70,34 @@ npm test
 - `start:dev`: Starts the development server with hot-reloading.
 - `build`: Compiles TypeScript to JavaScript and replaces paths.
 - `start`: Starts the production server.
-- `test`: Runs tests using Jest.
 - `lint`: Lints the code using ESLint.
+- `lint:fix`: Fixes linting issues using ESLint.
+- `test`: Runs tests using Jest.
+- `test:watch`: Runs tests in watch mode.
 - `format`: Formats the code using Prettier.
-- `clean`: Cleans the build and coverage directories.
-- `purge`: Removes the `node_modules` directory.
+- `check-format`: Checks if the code is formatted using Prettier.
+- `clean`: Removes the build directory.
+- `purge`: Removes the node_modules directory and clears the npm cache.
+- `prepare`: Installs Husky hooks.
+
+## Docker Commands
+
+### Build the Docker image
+
+```sh
+# Build the Docker image
+docker build -t mgrb-backend-template .
+
+# Run the Docker image
+docker run -d --name mgrb-backend-container -p 3000:3000 mgrb-backend-template
+
+# Check the logs
+docker logs mgrb-backend-container
+
+# Stop and remove the container
+docker stop mgrb-backend-container
+docker rm mgrb-backend-container
+```
 
 ## License
 

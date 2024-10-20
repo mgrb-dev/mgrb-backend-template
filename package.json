@@ -12,6 +12,10 @@
     "lint:fix": "eslint --fix --ext .ts ./src",
     "test": "jest --config jest.config.ts --coverage",
     "test:watch": "jest --config jest.config.ts --watch",
+    "format": "prettier --write \"./src/**/*.{ts,js,json,md}\"",
+    "check-format": "prettier --check \"./src/**/*.{ts,js,json,md}\"",
+    "clean": "rm -rf build",
+    "purge": "rm -rf node_modules && npm cache clean --force",
     "prepare": "husky install"
   },
   "dependencies": {

@@ -9,7 +9,7 @@ export default function getRouter(): Router {
   openApiRouter.get(
     OPEN_API_PATH,
     (_req: Request, res: Response, _next: NextFunction) =>
-      res.json(getOpenApiSpec())
+      res.json(getOpenApiSpec()),
   );
 
   return openApiRouter;

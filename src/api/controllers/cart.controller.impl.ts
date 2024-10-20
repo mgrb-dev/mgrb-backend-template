@@ -13,6 +13,6 @@ export class CartControllerImpl implements CartController {
       await CartSchema.parseAsync(cartResponse);
 
       res.status(200).json(cartResponse);
-    }
+    },
   );
 }

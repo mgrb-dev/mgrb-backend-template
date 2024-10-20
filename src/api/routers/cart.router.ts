@@ -7,7 +7,7 @@ export default function getRouter(controller: CartController): Router {
   const cartRouter = Router();
 
   cartRouter.get(CART_PATH, (req, res, next) =>
-    controller.getCart(req, res, next)
+    controller.getCart(req, res, next),
   );
 
   return cartRouter;

@@ -7,7 +7,7 @@ import RequestContext from '#shared/request-context/request-context';
 const requestContextMiddleware = (
   req: Request,
   _res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   const headers = req.headers as Record<string, string>;
   const context = RequestContext.getInstance();

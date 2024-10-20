@@ -3,7 +3,7 @@ import type { NextFunction, Request, Response } from 'express';
 type ControllerAction = (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => Promise<void>;
 
 export const asyncHandler =
