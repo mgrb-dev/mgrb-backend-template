@@ -1,5 +1,5 @@
 import { Endpoint } from '#types/endpoint';
-import config from './local';
+import { getEnv } from '#shared/enviroment';
 
 export interface AppConfig {
   clients: {
@@ -7,5 +7,6 @@ export interface AppConfig {
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+const env = getEnv();
+const config = require(`./${env}`).default as AppConfig;
 export default config;

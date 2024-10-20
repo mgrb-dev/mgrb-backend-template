@@ -4,6 +4,7 @@ import cartRouter from '#api/routers/cart.router';
 import openApiRouter from '#api/openapi/openapi.router';
 import { getCartController } from '#api/inject/controllers';
 import errorHandlerMiddleware from '#shared/error-handler/error-handler.middleware';
+import 'dotenv/config';
 
 const app: Application = bootstrap();
 app.use(openApiRouter());
