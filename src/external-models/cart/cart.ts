@@ -21,8 +21,7 @@ const CartSchema = z.object({
   totalQuantity: z.number(),
 });
 
-//eslint-disable-next-line @typescript-eslint/no-unused-vars
-const CartsResponseSchema = z.object({
+export const CartsResponseSchema = z.object({
   carts: z.array(CartSchema),
   total: z.number(),
   skip: z.number(),
