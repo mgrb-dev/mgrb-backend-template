@@ -10,6 +10,8 @@
     "start": "node build/src/bin/www.js",
     "lint": "eslint --ext .ts ./src --max-warnings=0",
     "lint:fix": "eslint --fix --ext .ts ./src",
+    "test": "jest --config jest.config.ts --coverage",
+    "test:watch": "jest --config jest.config.ts --watch",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.13",
     "@types/node": "^20.16.12",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
@@ -35,6 +38,7 @@
     "lint-staged": "^15.2.10",
     "minimatch": "^3.0.5",
     "prettier": "~3.0.0",
+    "ts-jest": "^29.2.5",
     "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.2.0",
     "tsconfig-replace-paths": "^0.0.14",

@@ -11,7 +11,7 @@ const errorHandlerMiddleware = (
   err: Error,
   _req: Request,
   res: Response,
-  _next: NextFunction
+  _next: NextFunction,
 ) => {
   if (res.headersSent) {
     return;
@@ -39,6 +39,6 @@ const errorHandlerMiddleware = (
       httpStatus: 500,
     });
   }
-}; //TODO improve
+};
 
 export default errorHandlerMiddleware;
