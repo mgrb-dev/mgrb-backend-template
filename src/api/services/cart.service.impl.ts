@@ -5,6 +5,7 @@ import {
   ExternalCartResponse,
   ExternalCartsResponse,
 } from '#external-models/cart/cart';
+import { handleHttpErrorAndThrow } from '#shared/http-client/http-error.handler';
 
 export class CartServiceImpl implements CartService {
   constructor(private readonly cartClient: CartClient) {}
@@ -16,7 +17,10 @@ export class CartServiceImpl implements CartService {
   }
 
   private async getExternalCart(): Promise<ExternalCartResponse> {
-    const response: ExternalCartsResponse = await this.cartClient.getCart();
+    const response: ExternalCartsResponse = await handleHttpErrorAndThrow(() =>
+      this.cartClient.getCart(),
+    );
+
     return response.carts[0];
   }
 

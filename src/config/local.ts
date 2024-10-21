@@ -7,7 +7,7 @@ export default {
   clients: {
     cartClient: {
       baseUrl: 'https://dummyjson.com',
-      timeout: 10,
+      timeout: 1000,
       retries: 3,
       retryDelay: 1000, //TODO: axios-retry
     },
