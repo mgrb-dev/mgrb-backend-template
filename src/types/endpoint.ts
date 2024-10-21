@@ -3,4 +3,5 @@ export type Endpoint = {
   timeout: number;
   retries: number;
   retryDelay: number;
+  shouldResetTimeout: boolean;
 };
