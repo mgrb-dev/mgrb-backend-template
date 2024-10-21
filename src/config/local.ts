@@ -8,7 +8,7 @@ export default {
   clients: {
     cartClient: {
       baseUrl: 'https://dummyjson.com',
-      timeout: 100,
+      timeout: 1000,
       retries: 3,
       retryDelay: 100,
       shouldResetTimeout: true,
