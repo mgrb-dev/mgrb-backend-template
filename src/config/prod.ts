@@ -1,4 +1,5 @@
 import { AppConfig } from '#config/config';
+import { ENV } from '#common/env';
 
 export default {
   logger: {
@@ -13,4 +14,5 @@ export default {
       shouldResetTimeout: true,
     },
   },
+  env: ENV.PROD,
 } as AppConfig;

@@ -11,6 +11,7 @@ export interface AppConfig {
   clients: {
     cartClient: Endpoint;
   };
+  env: ENV;
 }
 
 const env: ENV = getEnv();

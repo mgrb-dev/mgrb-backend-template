@@ -1,5 +1,3 @@
-/*eslint-disable @typescript-eslint/no-explicit-any*/
-
 import pino from 'pino';
 import { AxiosError, AxiosInstance } from 'axios';
 import Logger = pino.Logger;
