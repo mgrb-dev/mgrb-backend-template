@@ -18,6 +18,4 @@ COPY --from=build /opt/app/node_modules ./node_modules
 
 COPY --from=build /opt/app/build ./build
 
-ENV NODE_ENV=production
-
 CMD ["node", "build/src/bin/www.js"]
