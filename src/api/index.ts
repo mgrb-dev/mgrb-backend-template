@@ -1,5 +1,5 @@
 import express, { Application } from 'express';
-import requestContextMiddleware from '#shared/request-context/request-context.middleware';
+import requestContextMiddleware from '#shared/middlewares/request-context/request-context.middleware';
 import openApiRouter from '#api/openapi/openapi.router';
 import cartRouter from '#api/routers/cart.router';
 import { getCartController } from '#api/inject/controllers';

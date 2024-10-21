@@ -1,7 +1,7 @@
 import Axios, { AxiosInstance } from 'axios';
-import { ApiError } from '#shared/api-error';
+import { ApiError } from '#shared/errors/api-error';
 
-export type HttpClientOptions = {
+export type HttpClientConfig = {
   baseURL: string;
   timeout: number;
 };
@@ -9,7 +9,7 @@ export type HttpClientOptions = {
 export abstract class BaseHttpClient {
   protected readonly instance: AxiosInstance;
 
-  protected constructor(options: HttpClientOptions) {
+  protected constructor(options: HttpClientConfig) {
     if (!options.baseURL) {
       throw new ApiError('baseUrl required', 500);
     }

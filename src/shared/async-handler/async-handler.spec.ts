@@ -1,6 +1,6 @@
 import request from 'supertest';
 import express, { NextFunction, Request, Response } from 'express';
-import { ApiError } from '#shared/api-error';
+import { ApiError } from '../errors/api-error';
 import { asyncHandler } from './async-handler';
 
 const app = express();

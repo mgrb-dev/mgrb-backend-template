@@ -1,4 +1,4 @@
-import RequestContext from '#shared/request-context/request-context';
+import RequestContext from './request-context';
 
 describe('RequestContext', () => {
   it('should create a unique instance', () => {
