@@ -1,9 +1,9 @@
 import { Application } from 'express';
 import bootstrap from '#api';
-import errorHandlerMiddleware from '#shared/middlewares/error-handler/error-handler.middleware';
+import errorHandlerMiddleware from '#common/middlewares/error-handler/error-handler.middleware';
 import 'dotenv/config';
-import { healthCheck } from '#shared/health/health-check';
-import { fourZeroFourMiddleware } from '#shared/middlewares/404/four-zero-four.middleware';
+import { healthCheck } from '#common/health/health-check';
+import { fourZeroFourMiddleware } from '#common/middlewares/404/four-zero-four.middleware';
 
 const HEALTH_CHECK_PATH = '/health';
 

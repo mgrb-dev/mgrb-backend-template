@@ -5,7 +5,7 @@ import {
   ExternalCartResponse,
   ExternalCartsResponse,
 } from '#external-models/cart/cart';
-import { handleHttpErrorAndThrow } from '#shared/http-client/http-error.handler';
+import { handleHttpErrorAndThrow } from '#common/http-client/http-error.handler';
 
 export class CartServiceImpl implements CartService {
   constructor(private readonly cartClient: CartClient) {}

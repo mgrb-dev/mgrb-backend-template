@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import RequestContext from '#shared/middlewares/request-context/request-context';
+import RequestContext from '#common/middlewares/request-context/request-context';
 
 /**
  * Middleware to set the request context for each incoming request.

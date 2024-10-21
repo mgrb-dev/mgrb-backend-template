@@ -2,7 +2,7 @@ import { CartController } from '#api/controllers/cart.controller';
 import { CartService } from '#api/services/cart.service';
 import { NextFunction, Request, Response } from 'express';
 import { CartSchema } from '#domain/cart';
-import { asyncHandler } from '#shared/async-handler/async-handler';
+import { asyncHandler } from '#common/async-handler/async-handler';
 
 export class CartControllerImpl implements CartController {
   constructor(private readonly cartService: CartService) {}

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import logger from '#shared/logger/logger';
+import logger from '#common/logger/logger';
 
 export function fourZeroFourMiddleware(req: Request, res: Response) {
   logger.warn(

@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import RequestContext from '#shared/middlewares/request-context/request-context';
+import RequestContext from '#common/middlewares/request-context/request-context';
 
 /**
  * Custom error class to handle API-specific errors.

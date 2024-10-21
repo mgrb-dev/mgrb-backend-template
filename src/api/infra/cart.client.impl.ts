@@ -1,13 +1,13 @@
 import {
   BaseHttpClient,
   HttpClientConfig,
-} from '#shared/http-client/http-client';
+} from '#common/http-client/http-client';
 import { CartClient } from '#api/infra/cart.client';
 import { ExternalCartsResponse } from '#external-models/cart/cart';
 import { Endpoint } from '#types/endpoint';
-import { setupRetryConfig } from '#shared/http-client/retry/http-retry';
-import { RetryStrategy } from '#shared/http-client/retry/http-retry.config';
-import logger from '#shared/logger/logger';
+import { setupRetryConfig } from '#common/http-client/retry/http-retry';
+import { RetryStrategy } from '#common/http-client/retry/http-retry.config';
+import logger from '#common/logger/logger';
 
 export class CartClientImpl extends BaseHttpClient implements CartClient {
   constructor(config: Endpoint) {

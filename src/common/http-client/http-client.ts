@@ -1,5 +1,5 @@
 import Axios, { AxiosInstance } from 'axios';
-import { ApiError } from '#shared/errors/api-error';
+import { ApiError } from '#common/errors/api-error';
 
 export type HttpClientConfig = {
   baseURL: string;

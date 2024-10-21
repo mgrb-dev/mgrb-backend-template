@@ -2,7 +2,7 @@ import axiosRetry from 'axios-retry';
 import {
   HttpRetryConfig,
   RetryStrategy,
-} from '#shared/http-client/retry/http-retry.config';
+} from '#common/http-client/retry/http-retry.config';
 import { AxiosError } from 'axios';
 
 /**

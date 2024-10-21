@@ -1,6 +1,6 @@
 import http from 'http';
 import app from './server';
-import logger from '#shared/logger/logger';
+import logger from '#common/logger/logger';
 
 const PORT = process.env.PORT || 8080;
 

@@ -1,5 +1,5 @@
 import { Endpoint } from '#types/endpoint';
-import { ENV, getEnv } from '#shared/env';
+import { ENV, getEnv } from '#common/env';
 import local from './local';
 import prod from './prod';
 import stg from './stg';

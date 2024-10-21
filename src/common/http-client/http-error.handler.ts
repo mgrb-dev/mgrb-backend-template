@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import axios from 'axios';
-import { ApiError } from '#shared/errors/api-error';
-import RequestContext from '#shared/middlewares/request-context/request-context';
-import logger from '#shared/logger/logger';
+import { ApiError } from '#common/errors/api-error';
+import RequestContext from '#common/middlewares/request-context/request-context';
+import logger from '#common/logger/logger';
 
 /**
  * Handles HTTP errors by logging the error and returning an empty response.

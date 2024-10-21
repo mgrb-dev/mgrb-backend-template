@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { ApiError } from '#shared/errors/api-error';
-import logger from '#shared/logger/logger';
-import RequestContext from '#shared/middlewares/request-context/request-context';
+import { ApiError } from '#common/errors/api-error';
+import logger from '#common/logger/logger';
+import RequestContext from '#common/middlewares/request-context/request-context';
 
 /**
  * Middleware to handle errors in the application.
