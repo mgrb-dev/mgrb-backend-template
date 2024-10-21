@@ -8,10 +8,9 @@ import { fourZeroFourMiddleware } from '#shared/middlewares/404/four-zero-four.m
 const HEALTH_CHECK_PATH = '/health';
 
 const app: Application = bootstrap();
+app.get(HEALTH_CHECK_PATH, healthCheck);
 
 app.use(fourZeroFourMiddleware);
-app.use(errorHandlerMiddleware);
-
-app.get(HEALTH_CHECK_PATH, healthCheck);
+app.use(errorHandlerMiddleware());
 
 export default app;

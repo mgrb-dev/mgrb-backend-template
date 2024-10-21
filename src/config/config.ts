@@ -5,6 +5,9 @@ import prod from './prod';
 import stg from './stg';
 
 export interface AppConfig {
+  logger: {
+    logLevel: string;
+  };
   clients: {
     cartClient: Endpoint;
   };

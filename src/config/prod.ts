@@ -1,6 +1,9 @@
 import { AppConfig } from '#config/config';
 
 export default {
+  logger: {
+    logLevel: 'warn',
+  },
   clients: {
     cartClient: {
       baseUrl: 'https://dummyjson.com',

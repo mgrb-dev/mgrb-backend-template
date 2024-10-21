@@ -12,7 +12,7 @@ export class ApiError extends Error {
   constructor(
     message: string,
     readonly httpStatus: number,
-    readonly metadata?: Record<string, string>,
+    readonly metadata?: Record<string, unknown>,
   ) {
     super(message);
 
