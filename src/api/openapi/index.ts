@@ -10,45 +10,48 @@ extendZodWithOpenApi(z);
 
 const registry = new OpenAPIRegistry();
 
-registry.registerPath({
-  method: 'get',
-  path: '/v1/cart',
-  description: 'Get cart',
-  responses: {
-    200: {
-      description: 'Successful response',
-      content: {
-        'application/json': {
-          schema: CartSchema,
+function registerPaths() {
+  registry.registerPath({
+    method: 'get',
+    path: '/v1/cart',
+    description: 'Get cart',
+    responses: {
+      200: {
+        description: 'Successful response',
+        content: {
+          'application/json': {
+            schema: CartSchema,
+          },
+        },
+      },
+      400: {
+        description: 'Bad request',
+        content: {
+          'application/json': {
+            schema: z.object({
+              message: z.string(),
+              status: z.number(),
+            }),
+          },
+        },
+      },
+      404: {
+        description: 'Not found',
+        content: {
+          'application/json': {
+            schema: z.object({
+              message: z.string(),
+              status: z.number(),
+            }),
+          },
         },
       },
     },
-    400: {
-      description: 'Bad request',
-      content: {
-        'application/json': {
-          schema: z.object({
-            message: z.string(),
-            status: z.number(),
-          }),
-        },
-      },
-    },
-    404: {
-      description: 'Not found',
-      content: {
-        'application/json': {
-          schema: z.object({
-            message: z.string(),
-            status: z.number(),
-          }),
-        },
-      },
-    },
-  },
-});
+  });
+}
 
 export function getOpenApiSpec() {
+  registerPaths();
   const generator = new OpenApiGeneratorV3(registry.definitions);
   return generator.generateDocument({
     openapi: '3.0.0',
