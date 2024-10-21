@@ -18,30 +18,22 @@ function errorHandlerMiddleware() {
     }
 
     if (err instanceof ApiError) {
-      logError(err.message, err.httpStatus, reqId);
+      logger.error(
+        { ...err.metadata, reqId: reqId, httpStatus: err.httpStatus },
+        err.message,
+      );
       return res.status(err.httpStatus).json({
         message: err.message,
         httpStatus: err.httpStatus,
-        ...err.metadata,
       });
     }
 
-    logError(err.message, 500, reqId);
+    logger.error({ httpStatus: 500, reqId: reqId }, err.message);
     res.status(500).json({
       message: 'Internal server error',
       httpStatus: 500,
     });
   };
-}
-
-/**
- * Logs an error using the logger.
- * @param message - The error message.
- * @param status - HTTP status code related to the error.
- * @param reqId - Unique request ID for tracking purposes.
- */
-function logError(message: string, status: number, reqId: string) {
-  logger.error({ httpStatus: status, message, reqId });
 }
 
 export default errorHandlerMiddleware;
