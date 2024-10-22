@@ -2,7 +2,7 @@
 
 ## Description
 
-A backend template built with Express and Node.js to kickstart development quickly.
+A backend template built with Express and Node.js to accelerate the development process.
 
 ## Table of Contents
 
