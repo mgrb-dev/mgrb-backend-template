@@ -89,7 +89,7 @@ npm test
 docker build -t mgrb-backend-template .
 
 # Run the Docker image
-docker run -d --name mgrb-backend-container -p 3000:3000 mgrb-backend-template
+docker run -d --name mgrb-backend-container -p 8080:8080 mgrb-backend-template
 
 # Check the logs
 docker logs mgrb-backend-container
