@@ -15,8 +15,8 @@ A backend template built with Express and Node.js to accelerate the development 
 
 ## Prerequisites
 
-- Node.js (>= 14.x)
-- npm (>= 6.x)
+- Node.js (>= 22.x)
+- npm (>= 10.x)
 
 ## Installation
 
