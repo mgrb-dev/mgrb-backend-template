@@ -1,0 +1,40 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/mgrb/mgrb-backend-template
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 3000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  hosts:
+    - host: mgrb-backend-template.microservices.mgrb.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          port: 8080
+  tls:
+    - secretName: mgrb-backend-template-tls
+      hosts:
+        - mgrb-backend-template.microservices.mgrb.com
+
+resources:
+  limits:
+    cpu: "100m"
+    memory: "128Mi"
+  requests:
+    cpu: "50m"
+    memory: "128Mi"
+
+nodeSelector: { }
+
+tolerations: [ ]
+
+affinity: { }

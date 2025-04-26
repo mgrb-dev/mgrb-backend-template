@@ -1,4 +1,4 @@
-import { CartClient } from '#api/infra/cart.client';
+import type { CartClient } from '#api/infra/cart.client';
 import { CartClientImpl } from '#api/infra/cart.client.impl';
 import config from '#config/config';
 

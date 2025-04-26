@@ -1,4 +1,4 @@
-import { Endpoint } from '#types/endpoint';
+import type { Endpoint } from '#types/endpoint';
 import { ENV, getEnv } from '#common/env';
 import local from './local';
 import prod from './prod';
@@ -10,6 +10,9 @@ export interface AppConfig {
   };
   clients: {
     cartClient: Endpoint;
+  };
+  headers: {
+    forwardHeaders: string[];
   };
   env: ENV;
 }

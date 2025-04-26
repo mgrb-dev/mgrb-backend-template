@@ -5,12 +5,13 @@ import {
 } from '@asteasolutions/zod-to-openapi';
 import { z } from 'zod';
 import { CartSchema } from '#domain/cart';
+import type { OpenAPIObject } from '@asteasolutions/zod-to-openapi/dist/types';
 
 extendZodWithOpenApi(z);
 
 const registry = new OpenAPIRegistry();
 
-function registerPaths() {
+function registerPaths(): void {
   registry.registerPath({
     method: 'get',
     path: '/v1/cart',
@@ -30,7 +31,7 @@ function registerPaths() {
           'application/json': {
             schema: z.object({
               message: z.string(),
-              status: z.number(),
+              httpStatus: z.number(),
             }),
           },
         },
@@ -41,7 +42,18 @@ function registerPaths() {
           'application/json': {
             schema: z.object({
               message: z.string(),
-              status: z.number(),
+              httpStatus: z.number(),
+            }),
+          },
+        },
+      },
+      500: {
+        description: 'Internal server error',
+        content: {
+          'application/json': {
+            schema: z.object({
+              message: z.string(),
+              httpStatus: z.number(),
             }),
           },
         },
@@ -50,7 +62,7 @@ function registerPaths() {
   });
 }
 
-export function getOpenApiSpec() {
+export function getOpenApiSpec(): OpenAPIObject {
   registerPaths();
   const generator = new OpenApiGeneratorV3(registry.definitions);
   return generator.generateDocument({
@@ -61,5 +73,5 @@ export function getOpenApiSpec() {
       description: 'Simple backend template',
     },
     servers: [{ url: '/v1' }],
-  });
+  }) as OpenAPIObject;
 }

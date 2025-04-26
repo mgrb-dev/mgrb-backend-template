@@ -1,7 +1,7 @@
-import { Cart, Item } from '#domain/cart';
-import { CartService } from '#api/services/cart.service';
-import { CartClient } from '#api/infra/cart.client';
-import {
+import type { Cart, Item } from '#domain/cart';
+import type { CartService } from '#api/services/cart.service';
+import type { CartClient } from '#api/infra/cart.client';
+import type {
   ExternalCartResponse,
   ExternalCartsResponse,
 } from '#external-models/cart/cart';
@@ -21,7 +21,7 @@ export class CartServiceImpl implements CartService {
       this.cartClient.getCart(),
     );
 
-    return response.carts[0];
+    return response.carts[0]!;
   }
 
   private mapCart(cart: ExternalCartResponse): Cart {

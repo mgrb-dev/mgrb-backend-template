@@ -11,6 +11,6 @@ server.listen(PORT, () => {
 });
 
 server.on('error', (error: NodeJS.ErrnoException) => {
-  logger.error({ message: 'Error starting server', error });
+  logger.error({ message: 'UNHANDLED ERROR', error });
   process.exit(1);
 });

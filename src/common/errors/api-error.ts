@@ -1,5 +1,5 @@
-import { AxiosError } from 'axios';
-import RequestContext from '#common/middlewares/request-context/request-context';
+import type { AxiosError } from 'axios';
+import { AppContext } from '#common/middlewares/request-context/request-context';
 
 /**
  * Custom error class to handle API-specific errors.
@@ -35,7 +35,7 @@ export class ApiError extends Error {
       url: error.config?.url,
       method: error.config?.method,
       response: error.response?.data,
-      ...RequestContext.getInstance().data,
+      ...AppContext.getInstance().getContext(),
     });
   }
 

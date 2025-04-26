@@ -38,12 +38,18 @@ describe('asyncHandler Middleware', () => {
   it('should handle an ApiError and return the correct status and message', async () => {
     const response = await request(app).get('/api-error');
     expect(response.status).toBe(400);
-    expect(response.body).toEqual({ message: 'Test API Error' });
+    expect(response.body).toEqual({
+      message: 'Test API Error',
+      httpStatus: 400,
+    });
   });
 
   it('should handle a generic error and return a 500 status', async () => {
     const response = await request(app).get('/generic-error');
     expect(response.status).toBe(500);
-    expect(response.body).toEqual({ message: 'Internal Server Error' });
+    expect(response.body).toEqual({
+      message: 'Internal Server Error',
+      httpStatus: 500,
+    });
   });
 });

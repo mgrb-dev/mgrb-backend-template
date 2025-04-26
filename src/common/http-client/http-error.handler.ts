@@ -2,8 +2,8 @@
 
 import axios from 'axios';
 import { ApiError } from '#common/errors/api-error';
-import RequestContext from '#common/middlewares/request-context/request-context';
 import logger from '#common/logger/logger';
+import { AppContext } from '#common/middlewares/request-context/request-context';
 
 /**
  * Handles HTTP errors by logging the error and returning an empty response.
@@ -17,26 +17,24 @@ export async function handleHttpErrorAndReturnEmpty<T>(
   try {
     return await fn();
   } catch (error: any) {
+    const context = AppContext.getInstance().getContext();
     if (axios.isAxiosError(error)) {
-      logger.error(
+      logger.warn(
         {
           baseURL: error.config?.baseURL,
           url: error.config?.url,
           method: error.config?.method,
           response: error.response?.data,
           status: error.response?.status,
-          ...RequestContext.getInstance().data,
+          ...context,
         },
         error.message,
       );
     } else {
-      logger.error(
-        {
-          ...RequestContext.getInstance().data,
-          stack: error.stack,
-        },
-        error.message,
-      );
+      logger.warn({
+        ...error,
+        ...context,
+      });
     }
     return undefined;
   }
@@ -57,7 +55,7 @@ export async function handleHttpErrorAndThrow<T>(
       throw ApiError.fromAxiosError(error);
     } else {
       throw ApiError.fromError(error, {
-        ...RequestContext.getInstance().data,
+        ...AppContext.getInstance().getContext(),
       });
     }
   }

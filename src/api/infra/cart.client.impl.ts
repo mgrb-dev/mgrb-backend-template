@@ -1,10 +1,8 @@
-import {
-  BaseHttpClient,
-  HttpClientConfig,
-} from '#common/http-client/http-client';
-import { CartClient } from '#api/infra/cart.client';
-import { ExternalCartsResponse } from '#external-models/cart/cart';
-import { Endpoint } from '#types/endpoint';
+import type { HttpClientConfig } from '#common/http-client/http-client';
+import { BaseHttpClient } from '#common/http-client/http-client';
+import type { CartClient } from '#api/infra/cart.client';
+import type { ExternalCartsResponse } from '#external-models/cart/cart';
+import type { Endpoint } from '#types/endpoint';
 import { setupRetryConfig } from '#common/http-client/retry/http-retry';
 import { RetryStrategy } from '#common/http-client/retry/http-retry.config';
 import logger from '#common/logger/logger';
@@ -21,7 +19,7 @@ export class CartClientImpl extends BaseHttpClient implements CartClient {
       axiosInstance: this.instance,
       retries: config.retries,
       retryDelay: config.retryDelay,
-      retryStrategy: RetryStrategy.ALL,
+      retryStrategy: RetryStrategy.DEFAULT,
       shouldResetTimeout: config.shouldResetTimeout,
       logger: logger,
     });

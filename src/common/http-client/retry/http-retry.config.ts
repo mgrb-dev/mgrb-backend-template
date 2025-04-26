@@ -1,5 +1,5 @@
 import pino from 'pino';
-import { AxiosError, AxiosInstance } from 'axios';
+import type { AxiosError, AxiosInstance } from 'axios';
 import Logger = pino.Logger;
 
 export enum RetryStrategy {

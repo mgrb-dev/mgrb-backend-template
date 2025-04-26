@@ -1,4 +1,4 @@
-import { AppConfig } from '#config/config';
+import type { AppConfig } from '#config/config';
 import { ENV } from '#common/env';
 
 export default {
@@ -13,6 +13,9 @@ export default {
       retryDelay: 100,
       shouldResetTimeout: true,
     },
+  },
+  headers: {
+    forwardHeaders: ['x-request-id'],
   },
   env: ENV.LOCAL,
 } as AppConfig;

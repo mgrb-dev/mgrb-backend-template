@@ -1,9 +1,7 @@
 import axiosRetry from 'axios-retry';
-import {
-  HttpRetryConfig,
-  RetryStrategy,
-} from '#common/http-client/retry/http-retry.config';
-import { AxiosError } from 'axios';
+import type { HttpRetryConfig } from '#common/http-client/retry/http-retry.config';
+import { RetryStrategy } from '#common/http-client/retry/http-retry.config';
+import type { AxiosError } from 'axios';
 
 /**
  * Get the retry condition function based on the retry strategy.

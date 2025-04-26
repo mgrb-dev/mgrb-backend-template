@@ -1,4 +1,4 @@
-import { CartService } from '#api/services/cart.service';
+import type { CartService } from '#api/services/cart.service';
 import { CartServiceImpl } from '#api/services/cart.service.impl';
 import { getCartClient } from '#api/inject/clients';
 

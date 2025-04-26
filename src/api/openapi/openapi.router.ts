@@ -1,4 +1,5 @@
-import { NextFunction, Request, Response, Router } from 'express';
+import type { NextFunction, Request, Response } from 'express';
+import { Router } from 'express';
 import { getOpenApiSpec } from '#api/openapi/index';
 
 const OPEN_API_PATH = '/api.json';

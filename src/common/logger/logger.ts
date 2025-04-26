@@ -7,20 +7,19 @@ import { ENV } from '#common/env';
  * Uses the 'pino' library for fast, low-overhead logging.
  */
 
-const transport =
-  config.env === ENV.LOCAL
-    ? {
-        target: 'pino-pretty',
-        options: {
-          colorize: true,
-          ignore: 'pid,hostname',
-        },
-      }
-    : undefined;
-
 const logger = pino({
   level: config.logger.logLevel,
-  transport: transport,
+  ...(config.env === ENV.LOCAL
+    ? {
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            colorize: true,
+            ignore: 'pid,hostname',
+          },
+        },
+      }
+    : {}),
 });
 
 export default logger;
