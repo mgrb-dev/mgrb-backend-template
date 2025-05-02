@@ -59,6 +59,6 @@ jobs:
 
       - name: Deploy with helm
         run: |
-          helm upgrade --install mgrb-backend-template ./helm-chart \
+          helm upgrade --install nodejs-backend-template ./helm-chart \
             --set image.repository=ghcr.io/${{ github.repository }} \
             --set image.tag=${{ env.TAG_RELEASE }}

@@ -1,4 +1,4 @@
-# mgrb-backend-template
+# nodejs-backend-template
 
 ## Description
 
@@ -26,7 +26,7 @@ A backend template built with Express and Node.js to accelerate the development 
    ```
 2. Navigate to the project directory:
    ```sh
-   cd mgrb-backend-template
+   cd nodejs-backend-template
    ```
 3. Install the dependencies:
    ```sh
@@ -86,17 +86,17 @@ npm test
 
 ```sh
 # Build the Docker image
-docker build -t mgrb-backend-template .
+docker build -t nodejs-backend-template .
 
 # Run the Docker image
-docker run -d --name mgrb-backend-container -p 8080:8080 mgrb-backend-template
+docker run -d --name nodejs-backend-template-container -p 8080:8080 nodejs-backend-template
 
 # Check the logs
-docker logs mgrb-backend-container
+docker logs nodejs-backend-template-container
 
 # Stop and remove the container
-docker stop mgrb-backend-container
-docker rm mgrb-backend-container
+docker stop nodejs-backend-template-container
+docker rm nodejs-backend-template-container
 ```
 
 ## License

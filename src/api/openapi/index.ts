@@ -69,7 +69,7 @@ export function getOpenApiSpec(): OpenAPIObject {
     openapi: '3.0.0',
     info: {
       version: '1.0.0',
-      title: 'mgrb-backend-template',
+      title: 'nodejs-backend-template',
       description: 'Simple backend template',
     },
     servers: [{ url: '/v1' }],

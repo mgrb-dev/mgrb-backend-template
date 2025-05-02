@@ -1,5 +1,5 @@
 {
-  "name": "mgrb-backend-template",
+  "name": "nodejs-backend-template",
   "version": "1.0.0",
   "description": "A backend template built with Express and Node.js to kickstart development quickly.",
   "main": "dist/index.js",

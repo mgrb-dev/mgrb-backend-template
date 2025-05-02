@@ -28,7 +28,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           envFrom:
             - configMapRef:
-                name: mgrb-backend-template-config
+                name: nodejs-backend-template-config
           livenessProbe:
             httpGet:
               path: /health
