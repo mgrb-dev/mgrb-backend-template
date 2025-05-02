@@ -1,33 +1,27 @@
-import { z } from 'zod';
+export interface Product {
+  id: number;
+  title: string;
+  price: number;
+  quantity: number;
+  total: number;
+  discountPercentage: number;
+  discountedTotal: number;
+  thumbnail: string;
+}
 
-const ProductSchema = z.object({
-  id: z.number(),
-  title: z.string(),
-  price: z.number(),
-  quantity: z.number(),
-  total: z.number(),
-  discountPercentage: z.number(),
-  discountedTotal: z.number(),
-  thumbnail: z.string().url(),
-});
+export interface ExternalCartResponse {
+  id: number;
+  products: Product[];
+  total: number;
+  discountedTotal: number;
+  userId: number;
+  totalProducts: number;
+  totalQuantity: number;
+}
 
-const CartSchema = z.object({
-  id: z.number(),
-  products: z.array(ProductSchema),
-  total: z.number(),
-  discountedTotal: z.number(),
-  userId: z.number(),
-  totalProducts: z.number(),
-  totalQuantity: z.number(),
-});
-
-export const CartsResponseSchema = z.object({
-  carts: z.array(CartSchema),
-  total: z.number(),
-  skip: z.number(),
-  limit: z.number(),
-});
-
-export type ExternalCartResponse = z.infer<typeof CartSchema>;
-
-export type ExternalCartsResponse = z.infer<typeof CartsResponseSchema>;
+export interface ExternalCartsResponse {
+  carts: ExternalCartResponse[];
+  total: number;
+  skip: number;
+  limit: number;
+}
