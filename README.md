@@ -21,17 +21,17 @@ A backend template built with Express and Node.js to accelerate the development 
 ## Installation
 
 1. Clone the repository:
-    ```sh
-    git clone <repository-url>
-    ```
+   ```sh
+   git clone <repository-url>
+   ```
 2. Navigate to the project directory:
-    ```sh
-    cd mgrb-backend-template
-    ```
+   ```sh
+   cd mgrb-backend-template
+   ```
 3. Install the dependencies:
-    ```sh
-    npm install
-    ```
+   ```sh
+   npm install
+   ```
 
 ## Usage
 
